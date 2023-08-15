@@ -32,9 +32,9 @@ function Footer() {
               {/* <Link to="/sellers" className="react-link"> */}
                 <li>Sellers</li>
               {/* </Link> */}
-              {/* <Link to="/about" className="react-link"> */}
+              <Link to="/about" className="react-link"> 
                 <li>About</li>
-              {/* </Link> */}
+               </Link>
             </ul>
           </div>
 

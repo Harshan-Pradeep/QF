@@ -161,10 +161,12 @@ export default function AppHeader(props) {
                       style={{ textDecoration: "none" }}
                       className="react-link"
                     >
-                      <li>My Profile</li>
+                    {user.userType == "admin" &&
+                        user.isAdmin == true ? <li>Admin Pannel</li> : <li>My Profile</li>}
+                      
                     </Link>
                     <Link className="react-link" to="/cart">
-                      <li>My Cart</li>
+                      {/* <li>My Cart</li> */}
                     </Link>
                     <li>Message Center</li>
                     <li onClick={doLogout}>Log Out</li>

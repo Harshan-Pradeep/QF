@@ -41,6 +41,7 @@ import BuyerToSeller from "./pages/profile/profileDetailsNav/BuyerToSeller/Buyer
 import AboutUs from "./pages/home/about/AboutUs";
 import EmailVerify from "./pages/signup/emailVerify/EmailVerify";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Admin from "./pages/adminPannel/Admin";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -72,7 +73,7 @@ function App() {
                           )
                         }
                       />
-                      <Route path="/aboutus" element={<AboutUs />} />
+                      <Route path="/about" element={<AboutUs />} />
                       <Route path="/services" element={<Services />}>
                         <Route
                           path="servicedetails/:id"
@@ -124,9 +125,11 @@ function App() {
                       }
                     >
                       <Route path="services" element={<NServices />} />
-                      
+
                       {/* new route */}
                       <Route path="dashboard" element={<Dashboard />} />
+
+                      <Route path="admin" element={<Admin />} />
 
                       <Route path="orders" element={<NOrder />}>
                         <Route
@@ -134,8 +137,7 @@ function App() {
                           element={
                             <Navigate
                               to={
-                                user.userType == "admin" &&
-                                user.isAdmin == true
+                                user.userType == "admin" && user.isAdmin == true
                                   ? "neworders"
                                   : user.userType == "buyer" ||
                                     user.userType == "admin"
@@ -175,7 +177,31 @@ function App() {
                         <Route path="userinfo" element={<EditUserInfo />} />
                         <Route path="sellerinfo" element={<EditSellerInfo />} />
                       </Route>
+                      <Route path="adminPannel" element={<Admin />}>
+                      <Route path="adminPannel/services" element={<NSetings />}></Route>
+                        <Route path="" element={<Navigate to="userinfo" />} />
+                        <Route
+                          path="userinfo"
+                          element={
+                            <div className="NSetings">
+                              <div className="edit-profile">
+                                <div className="up">
+                                  <div className="seting-nav">
+                                    <ul></ul>
+                                  </div>
+                                </div>
+                                <div className="down">
+                                  <EditUserInfo />
+                                </div>
+                              </div>
+                            </div>
+                          }
+                        />
 
+                        <Route path="sellerinfo" element={<EditSellerInfo />} />
+                        <Route path="services" element={<NServices />} />
+                      </Route>
+                      <Route path="dashboard" element={<Dashboard />} />
                       <Route
                         path="services/view/:id"
                         element={<ServiceDetails />}

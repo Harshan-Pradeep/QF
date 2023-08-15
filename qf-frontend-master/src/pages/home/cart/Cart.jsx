@@ -51,7 +51,7 @@ function Cart() {
       .then((res) => {
         setCartList(res.data.cartItems);
         // setCheckedUser(res.data.cartItems[0].service.seller);
-        // console.log(res.data.cartItems);
+        console.log(res.data);
       })
       .catch((e) => {
         console.log(e);

@@ -72,15 +72,15 @@ export default function ProfileHeader(props) {
           <i className="fa-solid fa-magnifying-glass"></i>
         </div> */}
         <div className="nav-bar">
-          {/* <NavLink
+          <NavLink
             to="/"
             className={({ isActive }) =>
               isActive ? "active-nav" : "text-link"
             }
           >
             <nav>Home</nav>
-          </NavLink> */}
-          {user.userType == "admin" && user.isAdmin == true ? (
+          </NavLink>
+          {/* {user.userType == "admin" && user.isAdmin == true ? (
             <NavLink
               to="/profile/services"
               className={({ isActive }) =>
@@ -91,7 +91,7 @@ export default function ProfileHeader(props) {
             </NavLink>
           ) : (
             <></>
-          )}
+          )} */}
           {user.userType == "admin" && user.isAdmin == true ? (
             <NavLink
               to="/profile/dashboard"
@@ -100,6 +100,18 @@ export default function ProfileHeader(props) {
               }
             >
               <nav>Dashboard</nav>
+            </NavLink>
+          ) : (
+            <></>
+          )}
+          {user.userType == "admin" && user.isAdmin == true ? (
+            <NavLink
+              to="/profile/admin"
+              className={({ isActive }) =>
+                isActive ? "active-nav" : "text-link"
+              }
+            >
+              <nav>Admin Profile</nav>
             </NavLink>
           ) : (
             <></>
@@ -124,6 +136,7 @@ export default function ProfileHeader(props) {
           >
             <nav>Orders</nav>
           </NavLink>
+        {user.userType == "admin" && user.isAdmin == true ? "" :
           <NavLink
             to="/profile/settings"
             className={({ isActive }) =>
@@ -131,7 +144,7 @@ export default function ProfileHeader(props) {
             }
           >
             <nav>Settings</nav>
-          </NavLink>
+          </NavLink>}
         </div>
         <div className="buttons">
           {!loggedIn ? (
@@ -154,17 +167,17 @@ export default function ProfileHeader(props) {
                       : switchSeller(true);
                   }}
                 >
-                  <button className="signup switch-btn">
+                  {/* <button className="signup switch-btn">
                     {user.isAdmin == true
                       ? "Switch to User"
                       : "Switch to Admin"}
-                  </button>
+                  </button> */}
                 </Link>
               ) : (
                 <Link to="/profile/sellerregistration">
-                  <button className="signup switch-btn">
+                  {/* <button className="signup switch-btn">
                     Switch to Seller
-                  </button>
+                  </button> */}
                 </Link>
               )}
 
